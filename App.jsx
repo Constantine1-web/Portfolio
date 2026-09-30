@@ -751,7 +751,7 @@ Format the output cleanly in Markdown.`;
             Let's build something brilliant.
           </h2>
           <div className="flex justify-center gap-6 mb-16 flex-wrap">
-            <a href="mailto:eulogicstudiosltd@gmail.com" className="px-8 py-4 bg-mustard text-ink font-display font-bold text-xl border-4 border-ink shadow-[6px_6px_0_0_#1a1210] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-3">
+            <a href="https://mail.google.com/mail/?view=cm&to=eulogicstudiosltd@gmail.com&su=Let's%20Work%20Together" target="_blank" rel="noreferrer" className="px-8 py-4 bg-mustard text-ink font-display font-bold text-xl border-4 border-ink shadow-[6px_6px_0_0_#1a1210] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-3">
               <Mail className="w-6 h-6" /> Email Me
             </a>
             <a href="https://wa.me/2347044732970" target="_blank" rel="noreferrer" className="px-8 py-4 bg-[#25D366] text-ink font-display font-bold text-xl border-4 border-ink shadow-[6px_6px_0_0_#1a1210] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-3">
