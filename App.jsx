@@ -191,17 +191,17 @@ const ArchitectureModal = ({ project, onClose, apiKey }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-ink/40">
-      <div className="relative w-full max-w-5xl max-h-[90vh] bg-paper border-4 border-ink rough-border shadow-drawn-lg overflow-hidden flex flex-col md:flex-row bg-paper-texture">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-6 backdrop-blur-sm bg-ink/40">
+      <div className="relative w-full max-w-5xl max-h-[95vh] bg-paper border-4 border-ink rough-border shadow-drawn-lg flex flex-col md:flex-row bg-paper-texture overflow-y-auto md:overflow-hidden">
         {/* Tape decoration */}
-        <TapeSVG className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 text-mustard z-20 drop-shadow-md rotate-2" />
+        <TapeSVG className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-8 text-mustard z-20 drop-shadow-md rotate-2 hidden md:block" />
         
-        <button onClick={onClose} className="absolute top-4 right-4 text-ink hover:text-rust z-10 p-2 bg-white rounded-full border-2 border-ink shadow-drawn transition-transform hover:-translate-y-1">
+        <button onClick={onClose} className="absolute top-2 right-2 md:top-4 md:right-4 text-ink hover:text-rust z-10 p-2 bg-white rounded-full border-2 border-ink shadow-drawn transition-transform hover:-translate-y-1 sticky md:fixed">
           <X className="w-5 h-5" />
         </button>
 
         {/* Left: Architecture Details */}
-        <div className="flex-1 overflow-y-auto p-6 md:p-8 border-b-4 md:border-b-0 md:border-r-4 border-ink">
+        <div className="flex-1 md:overflow-y-auto p-5 md:p-8 border-b-4 md:border-b-0 md:border-r-4 border-ink shrink-0">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-mustard border-2 border-ink text-ink font-handwriting text-lg font-bold mb-6 rotate-[-2deg] shadow-drawn">
             {project.category}
           </div>
@@ -259,18 +259,18 @@ const ArchitectureModal = ({ project, onClose, apiKey }) => {
         </div>
 
         {/* Right: Embedded Ask Gemini */}
-        <div className="w-full md:w-[450px] flex flex-col bg-white">
-          <div className="p-5 border-b-4 border-ink bg-sage flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white border-2 border-ink flex items-center justify-center shadow-drawn">
-              <PenTool className="w-5 h-5 text-ink" />
+        <div className="w-full md:w-[450px] flex flex-col bg-white shrink-0 min-h-[500px] md:min-h-0">
+          <div className="p-4 md:p-5 border-b-4 border-ink bg-sage flex items-center gap-3">
+            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border-2 border-ink flex items-center justify-center shadow-drawn shrink-0">
+              <PenTool className="w-4 h-4 md:w-5 md:h-5 text-ink" />
             </div>
             <div>
-              <h3 className="text-xl font-handwriting font-bold text-ink">Architect's Notepad</h3>
-              <p className="text-sm text-ink/60 font-sans font-semibold">Gemini AI Connected</p>
+              <h3 className="text-lg md:text-xl font-handwriting font-bold text-ink leading-tight">Architect's Notepad</h3>
+              <p className="text-xs md:text-sm text-ink/60 font-sans font-semibold">Gemini AI Connected</p>
             </div>
           </div>
           
-          <div className="flex-1 overflow-y-auto p-5 space-y-5 bg-paper-texture">
+          <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4 md:space-y-5 bg-paper-texture">
             {chat.length === 0 && (
               <div className="space-y-3">
                 <p className="text-sm font-bold text-ink/70 mb-4">Select a question or ask anything about this system's architecture.</p>
@@ -494,7 +494,7 @@ Format the output cleanly in Markdown.`;
       {/* Hero Section */}
       <section id="hero" className="pt-32 md:pt-48 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
         <div className="relative order-2 lg:order-1">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-rust border-2 border-ink text-white font-handwriting text-xl font-bold mb-8 shadow-drawn rotate-[-2deg]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-rust border-2 border-ink text-white font-handwriting text-base md:text-xl font-bold mb-6 md:mb-8 shadow-drawn rotate-[-2deg]">
             Available for software engineering contracts <PenTool className="w-4 h-4"/>
           </div>
           <h1 className="text-5xl md:text-7xl font-display font-black text-ink leading-[1.1] mb-6">
@@ -507,11 +507,11 @@ Format the output cleanly in Markdown.`;
           <p className="text-lg md:text-xl font-semibold font-sans text-ink/90 mb-10 max-w-xl leading-relaxed mt-8">
             Full-stack engineer and systems architect specializing in production Next.js applications, high-integrity PostgreSQL schemas, and secure Fintech pipelines. Turning complex logic into fast, resilient software.
           </p>
-          <div className="flex flex-wrap gap-6 font-display font-bold">
-            <a href="#systems" className="px-8 py-4 bg-rust text-white rounded-lg border-2 border-ink hover:bg-rust/90 transition-transform shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none text-lg">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 font-display font-bold">
+            <a href="#systems" className="px-6 py-3 md:px-8 md:py-4 text-center bg-rust text-white rounded-lg border-2 border-ink hover:bg-rust/90 transition-transform shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none text-base md:text-lg">
               View My Work
             </a>
-            <a href="#ai-scoper" className="px-8 py-4 bg-white text-ink rounded-lg border-2 border-ink hover:bg-gray-50 transition-transform shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none text-lg flex items-center gap-2">
+            <a href="#ai-scoper" className="px-6 py-3 md:px-8 md:py-4 justify-center bg-white text-ink rounded-lg border-2 border-ink hover:bg-gray-50 transition-transform shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none text-base md:text-lg flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-mustard" /> Project Scoper
             </a>
           </div>
@@ -625,31 +625,31 @@ Format the output cleanly in Markdown.`;
                 </div>
 
                 {/* Details */}
-                <div className="w-full lg:w-1/2 space-y-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-rust border-2 border-ink text-white font-handwriting text-xl font-bold shadow-drawn rotate-[-1deg]">
+                <div className="w-full lg:w-1/2 space-y-4 md:space-y-6">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-rust border-2 border-ink text-white font-handwriting text-lg md:text-xl font-bold shadow-drawn rotate-[-1deg]">
                     Project Case Study
                   </div>
                   <h3 className="text-4xl md:text-5xl font-display font-black text-ink">{project.name}</h3>
-                  <p className="text-lg font-semibold font-sans text-ink/90 leading-relaxed">{project.tagline}</p>
+                  <p className="text-base md:text-lg font-semibold font-sans text-ink/90 leading-relaxed">{project.tagline}</p>
                   
-                  <ul className="space-y-4 my-8">
+                  <ul className="space-y-3 md:space-y-4 my-6 md:my-8">
                     {project.highlights.slice(0, 2).map((h, i) => (
-                      <li key={i} className="flex items-start gap-3 font-bold text-ink text-base">
-                        <Check className="w-6 h-6 text-rust shrink-0 stroke-[3px]" />
+                      <li key={i} className="flex items-start gap-3 font-bold text-ink text-sm md:text-base">
+                        <Check className="w-5 h-5 md:w-6 md:h-6 text-rust shrink-0 stroke-[3px]" />
                         <span>{h}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="flex gap-4 pt-4">
+                  <div className="flex flex-col sm:flex-row gap-4 pt-2 md:pt-4">
                     <button 
                       onClick={() => setActiveModalProject(project)}
-                      className="px-6 py-3 bg-rust text-white font-display font-bold text-lg border-2 border-ink shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2"
+                      className="justify-center px-4 py-3 md:px-6 md:py-3 bg-rust text-white font-display font-bold text-base md:text-lg border-2 border-ink shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2"
                     >
                       <Layers className="w-5 h-5"/> Read Blueprint
                     </button>
                     {project.link && (
-                      <a href={project.link} target="_blank" rel="noreferrer" className="px-6 py-3 bg-white text-ink font-display font-bold text-lg border-2 border-ink shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2">
+                      <a href={project.link} target="_blank" rel="noreferrer" className="justify-center px-4 py-3 md:px-6 md:py-3 bg-white text-ink font-display font-bold text-base md:text-lg border-2 border-ink shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2">
                         Live Site <ExternalLink className="w-5 h-5"/>
                       </a>
                     )}
@@ -697,20 +697,20 @@ Format the output cleanly in Markdown.`;
               value={scoperInput}
               onChange={e => setScoperInput(e.target.value)}
               placeholder="Jot down your project requirements, target audience, and key features..."
-              className="w-full h-48 bg-paper border-2 border-ink p-6 font-handwriting text-2xl text-ink placeholder-ink/40 focus:outline-none focus:bg-white transition-colors resize-none shadow-inner leading-relaxed mb-6 bg-[url('https://www.transparenttextures.com/patterns/lined-paper.png')]"
+              className="w-full h-40 md:h-48 bg-paper border-2 border-ink p-4 md:p-6 font-handwriting text-xl md:text-2xl text-ink placeholder-ink/40 focus:outline-none focus:bg-white transition-colors resize-none shadow-inner leading-relaxed mb-6 bg-[url('https://www.transparenttextures.com/patterns/lined-paper.png')]"
               style={{ lineHeight: '2rem' }}
             />
 
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               {!apiKey ? (
                 <span className="text-rust font-bold font-sans text-sm flex items-center gap-1">
                   <Key className="w-4 h-4"/> VITE_GEMINI_API_KEY missing in .env
                 </span>
-              ) : <span></span>}
+              ) : <span className="hidden sm:inline"></span>}
               <button 
                 onClick={generateTechSpec}
                 disabled={!scoperInput.trim() || scoperLoading}
-                className="px-8 py-4 bg-rust text-white font-display font-bold text-xl border-2 border-ink shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all disabled:opacity-50 flex items-center gap-2"
+                className="w-full sm:w-auto justify-center px-6 py-3 md:px-8 md:py-4 bg-rust text-white font-display font-bold text-lg md:text-xl border-2 border-ink shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all disabled:opacity-50 flex items-center gap-2"
               >
                 {scoperLoading ? <PenTool className="w-6 h-6 animate-pulse" /> : <Sparkles className="w-6 h-6" />}
                 {scoperLoading ? 'Drafting...' : 'Generate Blueprint'}
@@ -759,7 +759,7 @@ Format the output cleanly in Markdown.`;
             </a>
           </div>
 
-          <div className="flex justify-center items-center gap-10 text-white/90 font-handwriting text-2xl flex-wrap mb-10">
+          <div className="flex justify-center items-center gap-6 md:gap-10 text-white/90 font-handwriting text-xl md:text-2xl flex-wrap mb-10">
             <a href="https://github.com/Constantine1-web" target="_blank" rel="noreferrer" className="hover:text-mustard transition-colors flex items-center gap-2"><Github className="w-6 h-6"/> GitHub</a>
             <a href="https://www.facebook.com/profile.php?id=61582485633812" target="_blank" rel="noreferrer" className="hover:text-mustard transition-colors flex items-center gap-2"><Facebook className="w-6 h-6"/> Facebook</a>
             <a href="#hero" className="hover:text-mustard transition-colors flex items-center gap-2"><Globe className="w-6 h-6"/> eulogic.studios</a>
