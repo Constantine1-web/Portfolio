@@ -94,19 +94,22 @@ const BENTO_CARDS = [
     icon: Database,
     title: "Schema-First Data Modeling",
     description: "Robust relational foreign keys, cascading safety, and Prisma ORM ensure absolute data integrity across complex historical datasets.",
-    color: "bg-sage"
+    color: "bg-sage",
+    textColor: "text-ink"
   },
   {
     icon: Shield,
     title: "Role-Based Access Control",
     description: "Strict multi-tenant route guards and permission isolation, preventing unauthorized access across overlapping user cohorts.",
-    color: "bg-mustard text-ink"
+    color: "bg-maroon",
+    textColor: "text-white"
   },
   {
     icon: Activity,
     title: "Fintech & Webhook Pipelines",
     description: "Cryptographic HMAC SHA-512 signature validation and idempotent escrow settlement for flawless, secure financial transactions.",
-    color: "bg-coral text-white"
+    color: "bg-ink",
+    textColor: "text-white"
   }
 ];
 
@@ -432,7 +435,7 @@ Format the output cleanly in Markdown.`;
   }
 
   return (
-    <div className="min-h-screen bg-paper text-ink selection:bg-mustard selection:text-ink relative overflow-x-hidden pb-12">
+    <div className="min-h-screen bg-paper text-ink selection:bg-mustard selection:text-white relative overflow-x-hidden pb-12">
       
       {/* Navbar */}
       <header className="fixed inset-x-0 top-0 z-40 bg-paper/95 border-b-4 border-ink backdrop-blur-sm pt-4 pb-4">
@@ -491,21 +494,21 @@ Format the output cleanly in Markdown.`;
       {/* Hero Section */}
       <section id="hero" className="pt-32 md:pt-48 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
         <div className="relative order-2 lg:order-1">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-sage border-2 border-ink text-ink font-handwriting text-xl font-bold mb-8 shadow-drawn rotate-[-2deg]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-rust border-2 border-ink text-white font-handwriting text-xl font-bold mb-8 shadow-drawn rotate-[-2deg]">
             Available for software engineering contracts <PenTool className="w-4 h-4"/>
           </div>
           <h1 className="text-5xl md:text-7xl font-display font-black text-ink leading-[1.1] mb-6">
             Architecting <br/>
             <span className="relative inline-block mt-2 text-rust">
               Resilient Systems.
-              <ScribbleUnderline className="absolute -bottom-4 left-0 w-full h-6 text-mustard" />
+              <ScribbleUnderline className="absolute -bottom-4 left-0 w-full h-6 text-mustard/80" />
             </span>
           </h1>
-          <p className="text-lg md:text-xl font-bold font-sans text-ink/80 mb-10 max-w-xl leading-relaxed mt-8">
+          <p className="text-lg md:text-xl font-semibold font-sans text-ink/90 mb-10 max-w-xl leading-relaxed mt-8">
             Full-stack engineer and systems architect specializing in production Next.js applications, high-integrity PostgreSQL schemas, and secure Fintech pipelines. Turning complex logic into fast, resilient software.
           </p>
           <div className="flex flex-wrap gap-6 font-display font-bold">
-            <a href="#systems" className="px-8 py-4 bg-ink text-white rounded-lg border-2 border-ink hover:bg-ink/90 transition-transform shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none text-lg">
+            <a href="#systems" className="px-8 py-4 bg-rust text-white rounded-lg border-2 border-ink hover:bg-rust/90 transition-transform shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none text-lg">
               View My Work
             </a>
             <a href="#ai-scoper" className="px-8 py-4 bg-white text-ink rounded-lg border-2 border-ink hover:bg-gray-50 transition-transform shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none text-lg flex items-center gap-2">
@@ -538,18 +541,18 @@ Format the output cleanly in Markdown.`;
               Core Architectural Pillars
               <ScribbleUnderline className="absolute -bottom-3 left-0 w-full h-4 text-rust" />
             </h2>
-            <p className="text-xl font-handwriting text-ink/70 mt-6 max-w-2xl">Engineering principles that guarantee performance, security, and absolute reliability.</p>
+            <p className="text-xl font-handwriting text-ink/80 mt-6 max-w-2xl">Engineering principles that guarantee performance, security, and absolute reliability.</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             {BENTO_CARDS.map((card, i) => (
-              <div key={i} className={`p-8 border-4 border-ink shadow-drawn-lg relative transition-transform hover:-translate-y-2 ${card.color} rough-border ${i%2===0 ? 'rotate-[-1deg]' : 'rotate-[2deg]'}`}>
-                <TapeSVG className={`absolute -top-4 left-6 w-16 h-6 ${i%2===0 ? 'text-coral' : 'text-sage'}`} />
-                <div className="w-14 h-14 bg-white border-2 border-ink rounded-full flex items-center justify-center mb-6 shadow-drawn">
-                  <card.icon className="w-7 h-7 text-ink" />
+              <div key={i} className={`p-8 border-4 border-ink shadow-drawn-lg relative transition-transform hover:-translate-y-2 ${card.color} ${card.textColor} rough-border ${i%2===0 ? 'rotate-[-1deg]' : 'rotate-[2deg]'}`}>
+                <TapeSVG className={`absolute -top-4 left-6 w-16 h-6 ${i%2===0 ? 'text-mustard' : 'text-sage'}`} />
+                <div className={`w-14 h-14 ${card.textColor === 'text-white' ? 'bg-white/20' : 'bg-white'} border-2 border-ink rounded-full flex items-center justify-center mb-6 shadow-drawn`}>
+                  <card.icon className={`w-7 h-7 ${card.textColor === 'text-white' ? 'text-white' : 'text-ink'}`} />
                 </div>
                 <h3 className="text-2xl font-display font-bold mb-4">{card.title}</h3>
-                <p className="font-bold font-sans text-sm md:text-base leading-relaxed opacity-90">{card.description}</p>
+                <p className="font-semibold font-sans text-sm md:text-base leading-relaxed opacity-95">{card.description}</p>
               </div>
             ))}
           </div>
@@ -564,7 +567,7 @@ Format the output cleanly in Markdown.`;
               Verified Systems
               <TapeSVG className="absolute -bottom-2 -right-12 w-20 h-6 text-mustard rotate-6" />
             </h2>
-            <p className="text-xl font-handwriting text-ink/70 mt-6 max-w-2xl">A roster of deployed platforms showcasing complex state management and secure pipelines.</p>
+            <p className="text-xl font-handwriting text-ink/80 mt-6 max-w-2xl">A roster of deployed platforms showcasing complex state management and secure pipelines.</p>
           </div>
 
           <div className="space-y-24">
@@ -580,7 +583,7 @@ Format the output cleanly in Markdown.`;
                       <div className="absolute top-4 right-4 text-ink font-display font-black text-6xl opacity-10">0{index+1}</div>
                       <project.icon className="w-16 h-16 text-rust mb-6" strokeWidth={1.5} />
                       <h3 className="text-3xl font-display font-black text-ink leading-tight mb-2">{project.name}</h3>
-                      <div className="text-sm font-bold text-ink/60 font-handwriting uppercase tracking-wider">{project.category}</div>
+                      <div className="text-base font-bold text-rust font-handwriting uppercase tracking-wider">{project.category}</div>
                       
                       <div className="mt-auto flex flex-wrap gap-2">
                         {project.techStack.slice(0, 4).map(tech => (
@@ -595,11 +598,11 @@ Format the output cleanly in Markdown.`;
 
                 {/* Details */}
                 <div className="w-full lg:w-1/2 space-y-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-mustard border-2 border-ink text-ink font-handwriting text-xl font-bold shadow-drawn rotate-[-1deg]">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-rust border-2 border-ink text-white font-handwriting text-xl font-bold shadow-drawn rotate-[-1deg]">
                     Project Case Study
                   </div>
                   <h3 className="text-4xl md:text-5xl font-display font-black text-ink">{project.name}</h3>
-                  <p className="text-lg font-bold font-sans text-ink/80 leading-relaxed">{project.tagline}</p>
+                  <p className="text-lg font-semibold font-sans text-ink/90 leading-relaxed">{project.tagline}</p>
                   
                   <ul className="space-y-4 my-8">
                     {project.highlights.slice(0, 2).map((h, i) => (
@@ -613,7 +616,7 @@ Format the output cleanly in Markdown.`;
                   <div className="flex gap-4 pt-4">
                     <button 
                       onClick={() => setActiveModalProject(project)}
-                      className="px-6 py-3 bg-ink text-white font-display font-bold text-lg border-2 border-ink shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2"
+                      className="px-6 py-3 bg-rust text-white font-display font-bold text-lg border-2 border-ink shadow-drawn hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2"
                     >
                       <Layers className="w-5 h-5"/> Read Blueprint
                     </button>
@@ -633,15 +636,15 @@ Format the output cleanly in Markdown.`;
       </section>
 
       {/* AI Scoper - Drafting Notebook Style */}
-      <section id="ai-scoper" className="py-24 border-y-4 border-ink bg-mustard relative">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')] opacity-50 mix-blend-multiply pointer-events-none"></div>
+      <section id="ai-scoper" className="py-24 border-y-4 border-ink bg-cream relative">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-30 pointer-events-none"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-display font-black text-ink mb-6">
               AI Blueprint Scoper
             </h2>
-            <p className="text-2xl font-handwriting text-ink/80 max-w-2xl mx-auto">
+            <p className="text-2xl font-handwriting text-ink/90 max-w-2xl mx-auto">
               Got an idea? Describe your business problem below, and I'll sketch a high-level architectural blueprint right on this notepad.
             </p>
           </div>
@@ -714,28 +717,28 @@ Format the output cleanly in Markdown.`;
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="py-20 bg-ink border-t-4 border-ink relative overflow-hidden">
+      <footer id="contact" className="py-20 bg-maroon border-t-4 border-ink relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 relative z-10 text-center">
           <h2 className="text-4xl md:text-5xl font-display font-black text-white mb-10">
             Let's build something brilliant.
           </h2>
           <div className="flex justify-center gap-6 mb-16 flex-wrap">
-            <a href="mailto:eulogicstudiosltd@gmail.com" className="px-8 py-4 bg-paper text-ink font-display font-bold text-xl border-4 border-paper shadow-[6px_6px_0_0_#fefce8] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-3">
+            <a href="mailto:eulogicstudiosltd@gmail.com" className="px-8 py-4 bg-mustard text-ink font-display font-bold text-xl border-4 border-ink shadow-[6px_6px_0_0_#1a1210] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-3">
               <Mail className="w-6 h-6" /> Email Me
             </a>
-            <a href="https://wa.me/2347044732970" target="_blank" rel="noreferrer" className="px-8 py-4 bg-[#25D366] text-ink font-display font-bold text-xl border-4 border-transparent shadow-[6px_6px_0_0_#16a34a] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-3">
+            <a href="https://wa.me/2347044732970" target="_blank" rel="noreferrer" className="px-8 py-4 bg-[#25D366] text-ink font-display font-bold text-xl border-4 border-ink shadow-[6px_6px_0_0_#1a1210] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-3">
               <MessageCircle className="w-6 h-6" /> WhatsApp
             </a>
           </div>
 
-          <div className="flex justify-center items-center gap-10 text-white font-handwriting text-2xl flex-wrap mb-10">
+          <div className="flex justify-center items-center gap-10 text-white/90 font-handwriting text-2xl flex-wrap mb-10">
             <a href="https://github.com/Constantine1-web" target="_blank" rel="noreferrer" className="hover:text-mustard transition-colors flex items-center gap-2"><Github className="w-6 h-6"/> GitHub</a>
             <a href="https://www.facebook.com/profile.php?id=61582485633812" target="_blank" rel="noreferrer" className="hover:text-mustard transition-colors flex items-center gap-2"><Facebook className="w-6 h-6"/> Facebook</a>
             <a href="https://eulogic.studios" className="hover:text-mustard transition-colors flex items-center gap-2"><Globe className="w-6 h-6"/> eulogic.studios</a>
           </div>
           
           <div className="border-t-4 border-white/10 pt-10 mt-10">
-            <p className="font-sans font-bold text-white/50 text-sm">
+            <p className="font-sans font-bold text-white/60 text-sm">
               &copy; {new Date().getFullYear()} Eulogic Studios. All rights reserved. <br/>
               Handcrafted with React, Tailwind & Gemini API.
             </p>
