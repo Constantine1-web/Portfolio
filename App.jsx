@@ -734,7 +734,7 @@ Format the output cleanly in Markdown.`;
           <div className="flex justify-center items-center gap-10 text-white/90 font-handwriting text-2xl flex-wrap mb-10">
             <a href="https://github.com/Constantine1-web" target="_blank" rel="noreferrer" className="hover:text-mustard transition-colors flex items-center gap-2"><Github className="w-6 h-6"/> GitHub</a>
             <a href="https://www.facebook.com/profile.php?id=61582485633812" target="_blank" rel="noreferrer" className="hover:text-mustard transition-colors flex items-center gap-2"><Facebook className="w-6 h-6"/> Facebook</a>
-            <a href="https://eulogic.studios" className="hover:text-mustard transition-colors flex items-center gap-2"><Globe className="w-6 h-6"/> eulogic.studios</a>
+            <a href="#hero" className="hover:text-mustard transition-colors flex items-center gap-2"><Globe className="w-6 h-6"/> eulogic.studios</a>
           </div>
           
           <div className="border-t-4 border-white/10 pt-10 mt-10">
