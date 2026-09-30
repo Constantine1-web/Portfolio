@@ -441,12 +441,12 @@ Format the output cleanly in Markdown.`;
       <header className="fixed inset-x-0 top-0 z-40 bg-paper/95 border-b-4 border-ink backdrop-blur-sm pt-4 pb-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
           <a href="#" className="relative inline-flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-rust border-2 border-ink rounded-lg flex items-center justify-center shadow-drawn group-hover:translate-y-1 transition-transform">
-              <TerminalIcon className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 bg-ink border-2 border-ink rounded-lg overflow-hidden shadow-drawn group-hover:translate-y-1 transition-transform flex items-center justify-center p-1.5">
+              <img src="/logo.png" alt="Eulogic Studios" className="w-full h-full object-contain" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display font-black text-2xl text-ink leading-none">Edidiong.</span>
-              <span className="font-handwriting text-rust text-lg leading-none mt-1">Eulogic Studios</span>
+              <span className="font-display font-black text-2xl text-ink leading-none">Eulogic</span>
+              <span className="font-handwriting text-rust text-lg leading-none mt-1">Studios</span>
             </div>
           </a>
 
@@ -517,17 +517,15 @@ Format the output cleanly in Markdown.`;
           </div>
         </div>
 
-        {/* Logo / Image Frame */}
+        {/* Profile Photo Frame */}
         <div className="relative order-1 lg:order-2 flex justify-center">
-          <div className="relative bg-white p-6 pb-16 border-2 border-ink shadow-drawn-lg w-full max-w-md rotate-3 transition-transform hover:rotate-1">
+          <div className="relative bg-white p-4 pb-12 border-2 border-ink shadow-drawn-lg w-full max-w-md rotate-3 transition-transform hover:rotate-1">
             <TapeSVG className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 text-sage z-10" />
-            {/* Profile Image */}
-            <div className="bg-paper border-2 border-ink w-full aspect-[4/5] flex items-center justify-center p-2 mb-10">
-               <img src="/profile.png" alt="Edidiong Akpan Profile" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+            <div className="bg-paper border-2 border-ink w-full aspect-[4/5] overflow-hidden">
+               <img src="/profile.png" alt="Edidiong Akpan" className="w-full h-full object-cover" />
             </div>
-            <div className="absolute bottom-4 w-full left-0 text-center flex flex-col items-center">
-              <p className="font-handwriting text-3xl text-ink font-bold leading-none">Edidiong Akpan</p>
-              <p className="font-sans text-xs font-bold text-rust uppercase tracking-widest mt-1">Full-Stack Maestro</p>
+            <div className="absolute bottom-3 w-full left-0 text-center">
+              <p className="font-handwriting text-2xl text-ink font-bold">Full-Stack Maestro</p>
             </div>
           </div>
         </div>
