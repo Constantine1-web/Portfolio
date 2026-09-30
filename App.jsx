@@ -130,7 +130,7 @@ const ScribbleUnderline = ({ className }) => (
 const callGeminiAPI = async (prompt, systemInstruction, apiKey, retries = 3) => {
   if (!apiKey) throw new Error("API Key is missing. Add VITE_GEMINI_API_KEY to your environment variables.");
   
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
   const payload = {
     contents: [{ parts: [{ text: prompt }] }],
     systemInstruction: { parts: [{ text: systemInstruction }] }
