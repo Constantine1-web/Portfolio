@@ -572,24 +572,54 @@ Format the output cleanly in Markdown.`;
             {projects.map((project, index) => (
               <div key={project.id} className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}>
                 
-                {/* Visual / Abstract Representation of Project */}
+                {/* Project Card with Screenshot */}
                 <div className="w-full lg:w-1/2 relative">
-                  <div className={`bg-white p-6 border-4 border-ink shadow-drawn-lg relative ${index % 2 === 0 ? 'rotate-[-2deg]' : 'rotate-[2deg]'}`}>
+                  <div className={`bg-white p-5 border-4 border-ink shadow-drawn-lg relative ${index % 2 === 0 ? 'rotate-[-1deg]' : 'rotate-[1deg]'}`}>
                     <TapeSVG className="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 text-coral opacity-90" />
-                    <div className="aspect-[4/3] bg-paper border-2 border-ink overflow-hidden flex flex-col p-6 relative">
-                      {/* Abstract Tech wireframe aesthetic inside */}
-                      <div className="absolute top-4 right-4 text-ink font-display font-black text-6xl opacity-10">0{index+1}</div>
-                      <project.icon className="w-16 h-16 text-rust mb-6" strokeWidth={1.5} />
-                      <h3 className="text-3xl font-display font-black text-ink leading-tight mb-2">{project.name}</h3>
-                      <div className="text-base font-bold text-rust font-handwriting uppercase tracking-wider">{project.category}</div>
-                      
-                      <div className="mt-auto flex flex-wrap gap-2">
-                        {project.techStack.slice(0, 4).map(tech => (
-                          <span key={tech} className="px-3 py-1 bg-white border-2 border-ink shadow-[2px_2px_0_0_#292524] text-xs font-bold text-ink">
-                            {tech}
-                          </span>
-                        ))}
+                    
+                    {/* Top bar: Project info */}
+                    <div className="flex items-start gap-4 mb-4">
+                      <project.icon className="w-10 h-10 text-rust shrink-0" strokeWidth={1.5} />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h3 className="text-2xl font-display font-black text-ink leading-tight">{project.name}</h3>
+                          <span className="text-ink font-display font-black text-4xl opacity-10">0{index+1}</span>
+                        </div>
+                        <div className="text-sm font-bold text-rust font-handwriting uppercase tracking-wider">{project.category}</div>
                       </div>
+                    </div>
+
+                    {/* Browser Frame with Screenshot */}
+                    <div className="border-2 border-ink rounded-lg overflow-hidden">
+                      {/* Browser Chrome */}
+                      <div className="bg-ink px-3 py-2 flex items-center gap-2">
+                        <div className="flex gap-1.5">
+                          <div className="w-2.5 h-2.5 rounded-full bg-rust"></div>
+                          <div className="w-2.5 h-2.5 rounded-full bg-mustard"></div>
+                          <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                        </div>
+                        <div className="flex-1 bg-white/10 rounded px-3 py-0.5 text-white/50 text-xs font-mono truncate ml-2">
+                          {project.link}
+                        </div>
+                      </div>
+                      {/* Screenshot */}
+                      <div className="aspect-[16/10] bg-paper overflow-hidden">
+                        <img 
+                          src={`https://image.thum.io/get/width/800/crop/500/${project.link}`} 
+                          alt={`${project.name} preview`}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Tech Stack */}
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.techStack.slice(0, 4).map(tech => (
+                        <span key={tech} className="px-3 py-1 bg-paper border-2 border-ink shadow-[2px_2px_0_0_#1a1210] text-xs font-bold text-ink">
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
